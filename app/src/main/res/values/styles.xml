@@ -8,4 +8,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="CustomTabLayout" parent="Widget.MaterialComponents.TabLayout">
+
+        <item name="tabIndicator">@color/colorAccent</item>
+        <item name="tabTextAppearance">@color/colorBlack</item>
+        <item name="tabTextColor">@color/colorBlack</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabRippleColor">@color/colorWhite</item>
+
+    </style>
+
+
+
 </resources>
