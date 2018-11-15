@@ -10,7 +10,7 @@ import com.example.helloworld.popularmovies.R
 import com.example.helloworld.popularmovies.models.MovieResponse
 import kotlinx.android.synthetic.main.popular_movies_list.view.*
 
-class PopularMoviesAdapter(context: Context, movieResponse: MovieResponse): RecyclerView.Adapter<PopularMoviesAdapter.MyViewHolder>() {
+class TopRatedMoviesAdapter(context: Context, movieResponse: MovieResponse): RecyclerView.Adapter<TopRatedMoviesAdapter.MyViewHolder>() {
 
     private var context: Context
     private var movieResponse: MovieResponse
@@ -22,7 +22,7 @@ class PopularMoviesAdapter(context: Context, movieResponse: MovieResponse): Recy
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MyViewHolder {
 
-        val view: View = LayoutInflater.from(context).inflate(R.layout.popular_movies_list, p0, false)
+        val view: View = LayoutInflater.from(context).inflate(R.layout.top_rated_movies_list, p0, false)
         return MyViewHolder(view)
     }
 

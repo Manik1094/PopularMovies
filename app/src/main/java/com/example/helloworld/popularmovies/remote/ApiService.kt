@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("movie/top_rated")
-    fun getTopRated(@Query("api_key") apiKey: String): Single<List<MovieResponse>>
+    fun getTopRated(@Query("api_key") apiKey: String): Single<MovieResponse>
 
     @GET("movie/popular")
     fun getPopularMovies(@Query("api_key") apiKey: String): Single<MovieResponse>
