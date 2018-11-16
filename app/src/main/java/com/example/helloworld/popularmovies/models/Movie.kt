@@ -48,6 +48,9 @@ class Movie {
     @SerializedName("vote_average")
      var voteAverage: Double? = null
 
+    @SerializedName("first_air_date")
+     var first_air_date : String?=null
+
 
 
 }
