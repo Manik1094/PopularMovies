@@ -17,5 +17,7 @@ interface ApiService {
     @GET("tv/popular")
     fun getPopularTvShows(@Query("api_key") apiKey: String): Single<MovieResponse>
 
+    @GET("movie/upcoming")
+    fun getUpcomingMovies(@Query("api_key") apiKey: String):Single<MovieResponse>
 
 }

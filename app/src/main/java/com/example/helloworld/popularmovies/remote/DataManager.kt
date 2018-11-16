@@ -19,5 +19,8 @@ class DataManager {
     fun getPopularTvShows(apiKey: String) : Single<MovieResponse>{
         return apiManager.apiService.getPopularTvShows(apiKey)
     }
+    fun getUpcomingMovies(apiKey: String) : Single<MovieResponse>{
+        return apiManager.apiService.getUpcomingMovies(apiKey)
+    }
 
 }

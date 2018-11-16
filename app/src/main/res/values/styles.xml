@@ -15,7 +15,7 @@
         <item name="tabTextColor">@color/colorBlack</item>
         <item name="tabMode">fixed</item>
         <item name="tabGravity">fill</item>
-        <item name="tabRippleColor">@color/colorWhite</item>
+        <item name="tabRippleColor">@color/colorAccent</item>
 
     </style>
 

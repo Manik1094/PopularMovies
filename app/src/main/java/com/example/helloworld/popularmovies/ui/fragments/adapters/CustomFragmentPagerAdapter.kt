@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import com.example.helloworld.popularmovies.ui.fragments.popularmovies.PopularMoviesFragment
 import com.example.helloworld.popularmovies.ui.fragments.populartvshows.PopularTvShowsFragment
 import com.example.helloworld.popularmovies.ui.fragments.toprated.TopRatedMoviesFragment
+import com.example.helloworld.popularmovies.ui.fragments.upcomingMovies.UpcomingMoviesFragment
 
 class CustomFragmentPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm) {
 
@@ -16,12 +17,15 @@ class CustomFragmentPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm
             PopularMoviesFragment()
         } else if (position == 1)
             TopRatedMoviesFragment()
-        else
+        else if(position == 2)
             PopularTvShowsFragment()
+        else{
+            UpcomingMoviesFragment()
+        }
     }
 
     override fun getCount(): Int {
-        return 3
+        return 4
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
@@ -30,8 +34,10 @@ class CustomFragmentPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm
             return "Popular"
         } else if (position == 1) {
             return "Top Rated"
-        }else{
+        }else if (position == 2){
             return "Tv Shows"
+        }else{
+            return "Upcoming Movies"
         }
         return super.getPageTitle(position)
     }
