@@ -9,5 +9,6 @@ interface MovieDetailMvpView : MvpView {
     fun hideProgress()
     fun displayToast(msg: String)
     fun setContentOnViews(searchedUsers: SearchedUsers)
+    fun openMovieVideoActivity()
 
 }

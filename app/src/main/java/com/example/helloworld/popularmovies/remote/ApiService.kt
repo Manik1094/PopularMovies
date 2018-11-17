@@ -1,6 +1,7 @@
 package com.example.helloworld.popularmovies.remote
 
 import com.example.helloworld.popularmovies.models.MovieResponse
+import com.example.helloworld.popularmovies.models.MovieVideo
 import com.example.helloworld.popularmovies.models.SearchedUsers
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -24,5 +25,8 @@ interface ApiService {
 
     @GET("movie/{id}")
     fun getMovieDetail(@Path("id") id: String, @Query("api_key") apiKey: String): Single<SearchedUsers>
+
+    @GET("movie/{movie_id}/videos")
+    fun getMovieVideos(@Path("movie_id") movieId: String, @Query("api_key") apiKey: String): Single<MovieVideo>
 
 }

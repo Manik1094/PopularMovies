@@ -1,5 +1,6 @@
 package com.example.helloworld.popularmovies.ui.fragments.activities.movieDetail
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -12,11 +13,13 @@ import com.example.helloworld.popularmovies.R
 import com.example.helloworld.popularmovies.base.BaseActivity
 import com.example.helloworld.popularmovies.models.SearchedUsers
 import com.example.helloworld.popularmovies.remote.DataManager
+import com.example.helloworld.popularmovies.ui.fragments.activities.movieVideo.MovieVideoActivity
 import com.example.helloworld.popularmovies.utils.Constants
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 import kotlinx.android.synthetic.main.content_movie_detail.*
 
 class MovieDetailActivity : BaseActivity(), MovieDetailMvpView {
+
 
     lateinit var progressBar: ProgressBar
     private lateinit var movieDetailPresenter: MovieDetailPresenter<MovieDetailMvpView>
@@ -41,6 +44,10 @@ class MovieDetailActivity : BaseActivity(), MovieDetailMvpView {
         hideProgress()
 
         movieDetailPresenter.getMovieDetail(id, Constants.API_KEY)
+
+        btn_watch_trailer.setOnClickListener {
+            openMovieVideoActivity()
+        }
 
         setSupportActionBar(toolbar)
         fab.setOnClickListener { view ->
@@ -78,6 +85,12 @@ class MovieDetailActivity : BaseActivity(), MovieDetailMvpView {
         tv_popularity.text = searchedUsers.popularity.toString()
         tv_language.text = searchedUsers.originalLanguage
 
+    }
+
+    override fun openMovieVideoActivity() {
+        val intent = Intent(this, MovieVideoActivity::class.java)
+        intent.putExtra("movieId", id)
+        startActivity(intent)
     }
 
 }

@@ -37,7 +37,7 @@ class PopularMoviesFragment : BaseFragment(), PopularMoviesMvpView {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        var view: View =  inflater.inflate(R.layout.fragment_popular_movies, container, false)
+        val view: View =  inflater.inflate(R.layout.fragment_popular_movies, container, false)
         dataManager = (activity!!.application as MoviesApp).getDataManager()
         progressBar = view.findViewById(R.id.pb_bar)
         popularMoviesPresenter = PopularMoviesPresenter(dataManager)

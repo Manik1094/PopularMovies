@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:paddingBottom="8dp">
+
+    <ImageView
+            android:id="@+id/iv_video"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/ic_live_tv_black_24dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp" app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+            android:textStyle="bold"
+            tools:text="Four Rooms 1995 Trailer"
+            android:textSize="16sp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:id="@+id/tv_video_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/iv_video" android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp" app:layout_constraintTop_toTopOf="@+id/iv_video"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"/>
+
+    <TextView
+            tools:text="Trailer"
+            android:textSize="17sp"
+            android:textColor="@android:color/black"
+            android:id="@+id/tv_video_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/iv_video" android:layout_marginStart="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_video_name"/>
+
+</android.support.constraint.ConstraintLayout>
