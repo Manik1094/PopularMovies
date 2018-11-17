@@ -1,9 +1,11 @@
 package com.example.helloworld.popularmovies.remote
 
 import com.example.helloworld.popularmovies.models.MovieResponse
+import com.example.helloworld.popularmovies.models.SearchedUsers
 import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
@@ -19,5 +21,8 @@ interface ApiService {
 
     @GET("movie/upcoming")
     fun getUpcomingMovies(@Query("api_key") apiKey: String):Single<MovieResponse>
+
+    @GET("movie/{id}")
+    fun getMovieDetail(@Path("id") id: String, @Query("api_key") apiKey: String): Single<SearchedUsers>
 
 }

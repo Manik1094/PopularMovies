@@ -9,5 +9,6 @@ interface PopularMoviesMvpView : MvpView {
     fun hideProgress()
     fun showToast(msg: String)
     fun initializeAdapter(movieResponse: MovieResponse)
+    fun openMovieDetailActivity(id: String, title: String)
 
 }

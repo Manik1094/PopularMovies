@@ -21,6 +21,11 @@
         </activity>
         <activity android:name=".base.BaseActivity">
         </activity>
+        <activity
+                android:name=".ui.fragments.activities.movieDetail.MovieDetailActivity"
+                android:label="@string/title_activity_movie_detail"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

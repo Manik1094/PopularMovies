@@ -10,14 +10,17 @@ import com.example.helloworld.popularmovies.R
 import com.example.helloworld.popularmovies.models.MovieResponse
 import kotlinx.android.synthetic.main.popular_movies_list.view.*
 
-class PopularMoviesAdapter(context: Context, movieResponse: MovieResponse): RecyclerView.Adapter<PopularMoviesAdapter.MyViewHolder>() {
+class PopularMoviesAdapter(context: Context, movieResponse: MovieResponse, listener: onItemClickListener): RecyclerView.Adapter<PopularMoviesAdapter.MyViewHolder>() {
 
     private var context: Context
     private var movieResponse: MovieResponse
+    private var mListener: onItemClickListener
 
     init {
         this.context = context
         this.movieResponse = movieResponse
+        mListener = listener
+
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MyViewHolder {
@@ -30,6 +33,10 @@ class PopularMoviesAdapter(context: Context, movieResponse: MovieResponse): Recy
         return movieResponse.movies.size
     }
 
+    interface onItemClickListener {
+        fun OnItemClicked(position: Int)
+    }
+
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.itemView.tv_movie_title.text = movieResponse.movies[position].title
         holder.itemView.tv_movie_release_date.text = movieResponse.movies[position].releaseDate
@@ -40,6 +47,10 @@ class PopularMoviesAdapter(context: Context, movieResponse: MovieResponse): Recy
 
         Glide.with(context).load(IMG_URL)
             .into(holder.itemView.iv_movie_icon)
+
+        holder.itemView.setOnClickListener {
+            mListener.OnItemClicked(position)
+        }
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

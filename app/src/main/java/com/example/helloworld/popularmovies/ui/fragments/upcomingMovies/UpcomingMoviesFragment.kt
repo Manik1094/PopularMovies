@@ -62,7 +62,13 @@ class UpcomingMoviesFragment : BaseFragment() , UpcomingMoviesMvpView {
 
     override fun initializeAdapter(movieResponse: MovieResponse) {
 
-        mAdapter = PopularMoviesAdapter(activity!!.applicationContext, movieResponse)
+        mAdapter = PopularMoviesAdapter(activity!!.applicationContext, movieResponse, object : PopularMoviesAdapter.onItemClickListener {
+            override fun OnItemClicked(position: Int) {
+
+
+            }
+
+        })
         val gridLayoutManager = GridLayoutManager(activity, 3, GridLayoutManager.VERTICAL, false)
         recyclerview.layoutManager = gridLayoutManager
         recyclerview.adapter = mAdapter

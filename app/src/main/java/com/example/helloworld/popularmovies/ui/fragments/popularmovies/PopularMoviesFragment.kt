@@ -1,6 +1,7 @@
 package com.example.helloworld.popularmovies.ui.fragments.popularmovies
 
 
+import android.content.Intent
 import android.opengl.Visibility
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -17,6 +18,7 @@ import com.example.helloworld.popularmovies.R
 import com.example.helloworld.popularmovies.base.BaseFragment
 import com.example.helloworld.popularmovies.models.MovieResponse
 import com.example.helloworld.popularmovies.remote.DataManager
+import com.example.helloworld.popularmovies.ui.fragments.activities.movieDetail.MovieDetailActivity
 import com.example.helloworld.popularmovies.ui.fragments.adapters.PopularMoviesAdapter
 import com.example.helloworld.popularmovies.utils.Constants
 import kotlinx.android.synthetic.main.fragment_popular_movies.*
@@ -61,9 +63,22 @@ class PopularMoviesFragment : BaseFragment(), PopularMoviesMvpView {
       //  Toast.makeText(this , msg , Toast.LENGTH_SHORT).
     }
 
+    override fun openMovieDetailActivity(id: String, title: String) {
+        val intent = Intent(activity, MovieDetailActivity::class.java)
+        intent.putExtra("id", id)
+        intent.putExtra("title", title)
+        startActivity(intent)
+    }
+
+
     override fun initializeAdapter(movieResponse: MovieResponse) {
 
-        mAdapter = PopularMoviesAdapter(activity!!.applicationContext, movieResponse)
+        mAdapter = PopularMoviesAdapter(activity!!.applicationContext, movieResponse, object : PopularMoviesAdapter.onItemClickListener{
+            override fun OnItemClicked(position: Int) {
+                openMovieDetailActivity(movieResponse.movies[position].Id!!, movieResponse.movies[position].title!!)
+            }
+
+        })
         val gridLayoutManager = GridLayoutManager(activity, 3, GridLayoutManager.VERTICAL, false)
         recyclerview.layoutManager = gridLayoutManager
         recyclerview.adapter = mAdapter
